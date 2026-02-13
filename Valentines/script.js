@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error(error);
       alert("Error saving answer: " + error.message);
     } else {
-      alert(`${answer} saved 💖`);
+      alert(`Thank you for answering 💖`);
       input.value = ""; // clear input field
     }
   }
@@ -49,3 +49,4 @@ document.addEventListener("DOMContentLoaded", () => {
     createEmoji("right");
   }, 300);
 });
+
