@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const { data, error } = await supabase
-      .from("answers")   // Table name
+      .from("Answers")   // Table name
       .insert([{ answer: answerText }]);
 
     if (error) {
@@ -62,12 +62,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const noBtn = document.getElementById("nobtn");
 
   yesBtn.addEventListener("click", async () => {
-    const { error } = await supabase.from("answers").insert([{ answer: "Yes" }]);
+    const { error } = await supabase.from("Answers").insert([{ answer: "Yes" }]);
     if (!error) alert("Thank you 💖");
   });
 
   noBtn.addEventListener("click", async () => {
-    const { error } = await supabase.from("answers").insert([{ answer: "No" }]);
+    const { error } = await supabase.from("Answers").insert([{ answer: "No" }]);
     if (!error) alert("I guess you're meant for someone else 💖");
   });
+
 });
