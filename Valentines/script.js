@@ -16,12 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const { data, error } = await supabase
-      .from("answers") // table name
-      .insert([{ question_one: answerText }]); // column name
+      .from("Answer") // <-- exact table name
+      .insert([{ question_one: answerText, question_two: "" }]);
 
     if (error) {
       console.error(error);
-      alert("Error saving answer.");
+      alert("Error saving answer: " + error.message);
     } else {
       alert("Answer saved 💖");
       input.value = "";
@@ -33,20 +33,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const noBtn = document.getElementById("nobtn");
 
   yesBtn.addEventListener("click", async () => {
-    const { error } = await supabase
-      .from("answers")
-      .insert([{ question_two: "Yes" }]); // column name
-    if (!error) alert("Yes saved 💖");
+    const { data, error } = await supabase
+      .from("Answer")
+      .insert([{ question_one: "", question_two: "Yes" }]);
+    if (error) {
+      console.error(error);
+      alert("Error saving Yes: " + error.message);
+    } else alert("Yes saved 💖");
   });
 
   noBtn.addEventListener("click", async () => {
-    const { error } = await supabase
-      .from("answers")
-      .insert([{ question_two: "No" }]); // column name
-    if (!error) alert("No saved 💖");
+    const { data, error } = await supabase
+      .from("Answer")
+      .insert([{ question_one: "", question_two: "No" }]);
+    if (error) {
+      console.error(error);
+      alert("Error saving No: " + error.message);
+    } else alert("No saved 💖");
   });
 
-  // Emoji rain code stays the same
+  // Emoji rain
   const emojis = ["💕","✨","❤️","⭐","🌸","😘"];
   function createEmoji(side) {
     const container = document.querySelector(`.emoji-rain.${side}`);
