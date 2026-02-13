@@ -1,57 +1,51 @@
 body {
     min-height: 100vh;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     background: linear-gradient(135deg, #667eea, #764ba2, #411f64);
+    margin: 0;
+    overflow-x: hidden;
 }
 
-#outside_container {
+/* Use classes instead of IDs */
+.outside_container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     width: 80%;
     height: 15rem;
-
     margin: 20px;
     padding: 20px;
     border-radius: 10px;
-    
     background: linear-gradient(135deg, #ffd6e8, #ff9ecf, #ff6fb5);
 }
 
-#inside_container {
+.inside_container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#question {
+.question {
     font-size: 36px;
     color: aliceblue;
     font-weight: 700;
-
     padding: 20px;
-
     text-shadow:
-    -1px -1px 0 black,
-     1px -1px 0 black,
-    -1px  1px 0 black,
-     1px  1px 0 black;
+        -1px -1px 0 black,
+         1px -1px 0 black,
+        -1px  1px 0 black,
+         1px  1px 0 black;
 }
 
 #firstA {
     font-size: 20px;
     font-weight: 500;
-
     margin: 2px;
     border-radius: 5px;
-
     background-color: transparent;
     border-color: transparent;
 }
@@ -61,29 +55,20 @@ body {
     border: none; 
 }
 
-#firstBtn {
-    font-size: 20px;
-    font-weight: 700;
-    
-    margin: 2px;
-    border-radius: 5px;
-}
-
+/* Yes / No buttons */
 #yesbtn, #nobtn {
     font-size: 40px;
-    border-radius: 100%;
-
-    margin: 0px 50px 20px 50px;
-    padding: 15px;
-
-    border: transparent;
-    background-color: transparent;
-
+    padding: 20px 30px;          /* bigger clickable area */
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255,255,255,0.2); /* subtle background for clicks */
+    margin: 0 30px 20px 30px;
     text-shadow:
-    -.1px -.1px 0 black,
-     .1px -.1px 0 black,
-    -.1px  .1px 0 black,
-     .1px  .1px 0 black;
+        -.1px -.1px 0 black,
+         .1px -.1px 0 black,
+        -.1px  .1px 0 black,
+         .1px  .1px 0 black;
+    cursor: pointer;              /* pointer cursor */
 }
 
 #yesbtn {
@@ -94,50 +79,39 @@ body {
     color: crimson;
 }
 
-body {
-  margin: 0;
-  overflow-x: hidden;
-}
-
+/* Emoji rain */
 .emoji-rain {
-  position: fixed;
-  top: 0;
-  width: 180px;          /* wider area */
-  height: 100vh;
-  pointer-events: none;
-  overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 180px;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
 }
 
 .emoji-rain.left {
-  left: 0;
+    left: 0;
 }
 
 .emoji-rain.right {
-  right: 0;
+    right: 0;
 }
 
 .emoji {
-  position: absolute;
-  font-size: 22px;
-  animation: fall linear infinite;
+    position: absolute;
+    font-size: 22px;
+    animation: fall linear infinite;
 }
 
 @keyframes fall {
-  0% {
-    top: -40px;
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    top: 100vh;
-    opacity: 0;
-    transform: translateX(20px);
-  }
+    0% {
+        top: -40px;
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+        transform: translateX(20px);
+    }
 }
-
-
-
-
-
-
-
