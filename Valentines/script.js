@@ -9,6 +9,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const yesBtn = document.getElementById("yesbtn");
   const noBtn = document.getElementById("nobtn");
 
+  // Create a message container below buttons
+  const messageDiv = document.createElement("div");
+  messageDiv.style.marginTop = "15px";
+  messageDiv.style.fontSize = "20px";
+  messageDiv.style.color = "aliceblue";
+  messageDiv.style.fontWeight = "600";
+  messageDiv.style.textAlign = "center";
+  yesBtn.parentElement.appendChild(messageDiv); // attach below buttons
+
   // ---------------- Yes/No buttons (save input + yes/no) ----------------
   async function saveAnswer(answer) {
     const answerText = input.value.trim(); // grab text input
@@ -19,9 +28,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (error) {
       console.error(error);
-      alert("Error saving answer: " + error.message);
+      messageDiv.textContent = "Oops! Something went wrong 😢";
+      messageDiv.style.color = "crimson";
     } else {
-      alert(`Thank you for answering 💖`);
+      // Custom messages
+      if (answer === "Yes") {
+        messageDiv.textContent = "Yay! You said yes! 🎉";
+        messageDiv.style.color = "darkgreen";
+      } else if (answer === "No") {
+        messageDiv.textContent = "Maybe you have a date.. thanks anyway 🤗";
+        messageDiv.style.color = "crimson";
+      } else {
+        messageDiv.textContent = "Thanks for your answer!";
+        messageDiv.style.color = "aliceblue";
+      }
+
       input.value = ""; // clear input field
     }
   }
@@ -49,4 +70,3 @@ document.addEventListener("DOMContentLoaded", () => {
     createEmoji("right");
   }, 300);
 });
-
