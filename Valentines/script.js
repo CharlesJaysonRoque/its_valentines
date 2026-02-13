@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .insert([{ question_one: answerText, question_two: "" }]);
 
     if (error) {
+      console.log(error);
       console.error(error);
       alert("Error saving answer: " + error.message);
     } else {
@@ -71,3 +72,4 @@ document.addEventListener("DOMContentLoaded", () => {
     createEmoji("right");
   }, 300);
 });
+
